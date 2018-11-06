@@ -17,7 +17,12 @@
 #define IRsensorL 0
 #define IRsensorR 0
 #define piezoPin 0
-
+#define bluetoothTX 0
+#define bluetoothRX 0
+#define frontRightPR 0
+#define backRightPR 0
+#define frontLeftPR 0
+#define backLeftPR 0
 
 const int del = 5; //Delay for turning wheels
 

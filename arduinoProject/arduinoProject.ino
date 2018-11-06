@@ -1,18 +1,22 @@
 #include <Servo.h>
 #include <stdbool.h>
+#include <SoftwareSerial.h>
+#include <SoftwareSerial.h>
+
 #include "Constants.h"
 #include "Useful.h"
-#include <SoftwareSerial.h>
+
 SoftwareSerial BT(0, 1);
 String BluetoothData;
+
 
 Servo servo;  //servo module object
 
 void setup() {
-    //Serial.begin(9600);
+    Serial.begin(9600);  //Begining the serial
     BT.begin(9600);
     BT.println("Bluetooth On");
-    Serial.begin(9660);//Begining the serial
+    
     pinMode(motorA1,OUTPUT);
     pinMode(motorA2,OUTPUT);
     pinMode(motorB1,OUTPUT);
@@ -84,10 +88,63 @@ void stop(){
     servo.write(90);
 }
 
+void btValues(){
+  
+  if(BT.available()){
+      BluetoothData += BT.readString();
+      delay(100); 
+  }  
+
+  if(BluetoothData.equals("w")){ // auticko do predu
+//      goStraight();
+      BluetoothData=("");
+  }
+  
+  else if (BluetoothData.equals("s")){ //auticko do zadu
+      goReverse();
+      BluetoothData=("");
+  }
+
+  else if (BluetoothData.equals("d")){ //auticko do prava
+//      turnRight();
+      BluetoothData=("");
+  }
+
+  else if (BluetoothData.equals("a")){ // auticko do lava
+//      turnLeft();
+      BluetoothData=("");
+  }
+
+  else if (BluetoothData.equals("p")){   // auticko stop
+//    stop();
+    BluetoothData=("");
+  }
+
+  else if (BluetoothData.equals("o")){ //auticko autonom
+//     goAuto();
+     BluetoothData=("");
+  }
+
+  else if (BluetoothData.equals("l")){ // auto turn on led 
+//     turnOnLed();
+     BluetoothData=("");
+  }
+
+  else if (BluetoothData.equals("k")){ //turn off led 
+//    turnOffLed();
+    BluetoothData=("");
+  }
+  
+  else if (BluetoothData.equals("j")){ // piezo horn
+//    horn();
+    BluetoothData=("");
+  }
+}
+
 void readPRData(){
   //sprav pole v setup kde nacita na zaciatku hodnoty
   //PP,ZP,PL,ZL
-  int values[4] = 0,0,0,0;
+  int values[4] = {0,0,0,0};
 
   //PP ZP PL ZL ERR s 
   //1  2  3  4  -1  0 
@@ -116,62 +173,15 @@ void readPRData(){
   if(light == 4){
     go = 0; 
   }
-
+/*
   if(go < 0) error();       //je nejaky problem
   else if(go == 4) stop();      //na vsetky svieti = stoj
   else if(go < 2) turnRight();  //na prave svieti chod vpravo
   else if(go < 4) turnLeft();   //na lave svieti chod vlavo
+*/
 }
-
 
 void loop() {
     giveTurnValue(dist(0),dist(1));
     goStraight();
-
-
-   if(BT.available())
-  {
-     BluetoothData += BT.readString();
-     
-     delay(100); 
-  }  
-  if(BluetoothData.equals("w")) // auticko do predu
-  {
-    BluetoothData=("");
-  } 
-   else if (BluetoothData.equals("s")) //auticko do zadu
-   {
-    BluetoothData=("");
-    }
-  else if (BluetoothData.equals("d")) //auticko do prava
-  {
-    BluetoothData=("");
-    }
-  else if (BluetoothData.equals("a")) // auticko do lava
-  {
-    BluetoothData=("");
-    }
-  else if (BluetoothData.equals("p"))   // auticko stop
-  {
-    BluetoothData=("");
-    }
-  else if (BluetoothData.equals("o")) //auticko autonom
-  {
-    BluetoothData=("");
-    }
-   else if (BluetoothData.equals("l")) // auto turn on led 
-   {
-    BluetoothData=("");
-    }
-   else if (BluetoothData.equals("k")) //turn off led 
-   {
-    BluetoothData=("");
-    }
-   else if (BluetoothData.equals("j")) // piezo horn
-   {
-    BluetoothData=("");
-    }
-
-
-    
 }
