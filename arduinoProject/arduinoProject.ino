@@ -71,8 +71,13 @@ void doUTurn(){
     goStraight();
     delay(1000);
 }
+
+void stop(){
+    motorVals(0,0,0,0);
+    servo.write(90);
+}
+
 void loop() {
     giveTurnValue(dist(0),dist(1));
     goStraight();
-  
 }
