@@ -2,11 +2,17 @@
 #include <stdbool.h>
 #include "Constants.h"
 #include "Useful.h"
+#include <SoftwareSerial.h>
+SoftwareSerial BT(0, 1);
+String BluetoothData;
 
 Servo servo;  //servo module object
 
 void setup() {
-    Serial.begin(9600);  //Begining the serial
+    //Serial.begin(9600);
+    BT.begin(9600);
+    BT.println("Bluetooth On");
+    Serial.begin(9660);//Begining the serial
     pinMode(motorA1,OUTPUT);
     pinMode(motorA2,OUTPUT);
     pinMode(motorB1,OUTPUT);
@@ -81,4 +87,51 @@ void stop(){
 void loop() {
     giveTurnValue(dist(0),dist(1));
     goStraight();
+
+
+   if(BT.available())
+  {
+     BluetoothData += BT.readString();
+     
+     delay(100); 
+  }  
+  if(BluetoothData.equals("w")) // auticko do predu
+  {
+    BluetoothData=("");
+  } 
+   else if (BluetoothData.equals("s")) //auticko do zadu
+   {
+    BluetoothData=("");
+    }
+  else if (BluetoothData.equals("d")) //auticko do prava
+  {
+    BluetoothData=("");
+    }
+  else if (BluetoothData.equals("a")) // auticko do lava
+  {
+    BluetoothData=("");
+    }
+  else if (BluetoothData.equals("p"))   // auticko stop
+  {
+    BluetoothData=("");
+    }
+  else if (BluetoothData.equals("o")) //auticko autonom
+  {
+    BluetoothData=("");
+    }
+   else if (BluetoothData.equals("l")) // auto turn on led 
+   {
+    BluetoothData=("");
+    }
+   else if (BluetoothData.equals("k")) //turn off led 
+   {
+    BluetoothData=("");
+    }
+   else if (BluetoothData.equals("j")) // piezo horn
+   {
+    BluetoothData=("");
+    }
+
+
+    
 }
