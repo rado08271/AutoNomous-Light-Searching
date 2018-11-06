@@ -10,5 +10,6 @@ void doUTurn();
 void stop();
 void btValues();
 void readPRData();
+int giveTurnValue(int leftDistance, int rightDistance);
 
 #endif

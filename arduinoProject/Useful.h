@@ -7,7 +7,6 @@ void ledLightOff();
 void ledLightOn();
 void ledLightOnL();
 void ledLightOnR();
-int giveTurnValue(int leftDistance, int rightDistance);
 int dist(int i);
 int readLine();
 void horn();

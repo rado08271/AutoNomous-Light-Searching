@@ -33,24 +33,6 @@ void ledLightOnR(){
     ledVals(1,0);
 }
 
-int giveTurnValue(int leftDistance, int rightDistance){
-    int angle = 90;
-    if(leftDistance > 30 && rightDistance > 30){
-        //servo.write(angle);
-        return angle;
-    }
-    bool goRight = (leftDistance < rightDistance) ? true : false;
- 
-    if(goRight){
-        angle += (40 - leftDistance);
-    }else{
-        angle -= (40 - rightDistance);
-    }
-    //servo.write(angle);
-    
-    return angle;
-}
-
 int dist(int i){
     long duration;
     int distance;

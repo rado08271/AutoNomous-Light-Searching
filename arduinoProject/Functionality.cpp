@@ -74,8 +74,25 @@ void stop(){
     servo.write(90);
 }
 
+int giveTurnValue(int leftDistance, int rightDistance){
+    int angle = 90;
+    if(leftDistance > 30 && rightDistance > 30){
+        servo.write(angle);
+        return angle;
+    }
+    bool goRight = (leftDistance < rightDistance) ? true : false;
+ 
+    if(goRight){
+        angle += (40 - leftDistance);
+    }else{
+        angle -= (40 - rightDistance);
+    }
+    servo.write(angle);
+    
+    return angle;
+}
+
 void btValues(){
-  
   if(BT.available()){
       BluetoothData += BT.readString();
       delay(100); 
