@@ -81,3 +81,7 @@ int readLine(){
       return 0;
 }
 
+void horn(){
+  tone(piezoPin,3000,500); //pin, tone, duration
+}
+

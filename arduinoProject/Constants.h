@@ -16,6 +16,8 @@
 #define ledLeft 0
 #define IRsensorL 0
 #define IRsensorR 0
+#define piezoPin 0
+
 
 const int del = 5; //Delay for turning wheels
 
