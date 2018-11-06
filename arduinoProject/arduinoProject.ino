@@ -14,6 +14,9 @@
 #define echo3Pin 7
 #define ledRight 
 #define ledLeft 
+#define IRsensorL
+#define IRsensorR 
+
 
 const int del = 5; //Delay for turning wheels
 Servo servo;  //servo module object
@@ -60,6 +63,22 @@ void ledLightOnL(){
 void ledLightOnR(){
     ledVals(1,0);
 }
+
+
+int followLine()
+{
+  int IRvalueL = digitalRead(IRsensorL);
+  int IRvalueR digitalRead(IRsensorR);
+ 
+  if(!IRvalueL && IRvalueR) // ked na lavo je cierna a na pravo je biela vracia 1 ma ist do lava
+      return 1;
+  if(IRvalueL && !IRvalueR ) // ked je na lavo biela a na pravo cierna vracia 2 ma ist do prava
+      return -1;
+  if(IRvalueL && IRvalueR) // su na bielej ide rovno 
+      return 0;
+}
+   
+
 
 int giveTurnValue(int leftDistance, int rightDistance){
     int angle = 90;
