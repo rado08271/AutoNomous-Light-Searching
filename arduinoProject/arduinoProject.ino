@@ -78,6 +78,46 @@ void stop(){
     servo.write(90);
 }
 
+void readPRData(){
+  //sprav pole v setup kde nacita na zaciatku hodnoty
+  //PP,ZP,PL,ZL
+  int values[4] = 0,0,0,0;
+
+  //PP ZP PL ZL ERR s 
+  //1  2  3  4  -1  0 
+  int go = -1;
+
+  int previous = 0; //previous value of light
+  int light = 0;    //how many of the pr have light pointing at them
+
+  //nacita vsetky photorezistory
+  for(int i = 0; i < 4; i++){
+    values[i] = analogRead(frontRightPR+i); //precitaj hodnoty
+
+    //ak je hodnota vacsia ako 200 tak svieti nan svetlo
+    if(values[i] > 200){
+      light++;
+    }
+
+    //zisti kam je najvyhodnejsie ist
+    if(values[i] > previous){   //vacsia ako predosla hodnota tak dalsie je viac
+      go = i+1;         //zmen na dalsie 
+      previous = values[i];   //nastavi predoslu
+    }
+  }
+
+  //na vsetky 4 svieti tak zastav
+  if(light == 4){
+    go = 0; 
+  }
+
+  if(go < 0) error();       //je nejaky problem
+  else if(go == 4) stop();      //na vsetky svieti = stoj
+  else if(go < 2) turnRight();  //na prave svieti chod vpravo
+  else if(go < 4) turnLeft();   //na lave svieti chod vlavo
+}
+
+
 void loop() {
     giveTurnValue(dist(0),dist(1));
     goStraight();
