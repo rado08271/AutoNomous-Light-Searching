@@ -3,6 +3,7 @@
 
 #include "Constants.h"
 #include "Useful.h"
+#include "Functionality.h"
 
 void motorVals(int a, int b, int c, int d){
     digitalWrite(motorA1,a);
