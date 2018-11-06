@@ -24,6 +24,7 @@ void setup() {
 void goStraight(){
     motorVals(1,0,1,0);
     if(dist(2) < 30){
+        horn();
         doUTurn();
     }
     ledLightOff();
