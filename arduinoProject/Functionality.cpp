@@ -19,7 +19,7 @@ void forSetup(){
 
 void goStraight(){
     motorVals(1,0,1,0);
-    if(dist(2) < 30){
+    if(dist(2) < MAX_DISTANCE){
         horn();
         doUTurn();
     }
@@ -69,79 +69,32 @@ void doUTurn(){
     delay(1000);
 }
 
-void stop(){
+void stopCar(){
     motorVals(0,0,0,0);
     servo.write(90);
 }
 
 int giveTurnValue(int leftDistance, int rightDistance){
     int angle = 90;
-    if(leftDistance > 30 && rightDistance > 30){
+    if(leftDistance > MAX_DISTANCE && rightDistance > MAX_DISTANCE){
         servo.write(angle);
         return angle;
     }
     bool goRight = (leftDistance < rightDistance) ? true : false;
  
     if(goRight){
-        angle += (40 - leftDistance);
+        angle += (30 - leftDistance);
     }else{
-        angle -= (40 - rightDistance);
+        angle -= (30 - rightDistance);
     }
     servo.write(angle);
     
     return angle;
 }
 
-void btValues(){
-  if(BT.available()){
-      BluetoothData += BT.readString();
-      delay(100); 
-  }  
-
-  if(BluetoothData.equals("w")){ // auticko do predu
-//      goStraight();
-      BluetoothData=("");
-  }
-  
-  else if (BluetoothData.equals("s")){ //auticko do zadu
-      goReverse();
-      BluetoothData=("");
-  }
-
-  else if (BluetoothData.equals("d")){ //auticko do prava
-//      turnRight();
-      BluetoothData=("");
-  }
-
-  else if (BluetoothData.equals("a")){ // auticko do lava
-//      turnLeft();
-      BluetoothData=("");
-  }
-
-  else if (BluetoothData.equals("p")){   // auticko stop
-//    stop();
-    BluetoothData=("");
-  }
-
-  else if (BluetoothData.equals("o")){ //auticko autonom
-//     goAuto();
-     BluetoothData=("");
-  }
-
-  else if (BluetoothData.equals("l")){ // auto turn on led 
-//     turnOnLed();
-     BluetoothData=("");
-  }
-
-  else if (BluetoothData.equals("k")){ //turn off led 
-//    turnOffLed();
-    BluetoothData=("");
-  }
-  
-  else if (BluetoothData.equals("j")){ // piezo horn
-//    horn();
-    BluetoothData=("");
-  }
+void goAutonomous(){
+    giveTurnValue(dist(0),dist(1));
+    goStraight();
 }
 
 void readPRData(){
@@ -174,7 +127,7 @@ void readPRData(){
 
   //na vsetky 4 svieti tak zastav
   if(light == 4){
-    go = 0; 
+      go = 0; 
   }
 /*
   if(go < 0) error();       //je nejaky problem
@@ -182,4 +135,56 @@ void readPRData(){
   else if(go < 2) turnRight();  //na prave svieti chod vpravo
   else if(go < 4) turnLeft();   //na lave svieti chod vlavo
 */
+}
+
+void btValues(){
+  if(BT.available()){
+      BluetoothData += BT.readString();
+      delay(100); 
+  }  
+
+  if(BluetoothData.equals("w")){ // auticko do predu
+      goStraight();
+      BluetoothData=("");
+  }
+  
+  else if (BluetoothData.equals("s")){ //auticko do zadu
+      goReverse();
+      BluetoothData=("");
+  }
+
+  else if (BluetoothData.equals("d")){ //auticko do prava
+      turnRight();
+      BluetoothData=("");
+  }
+
+  else if (BluetoothData.equals("a")){ // auticko do lava
+      turnLeft();
+      BluetoothData=("");
+  }
+
+  else if (BluetoothData.equals("p")){   // auticko stop
+      stopCar();
+      BluetoothData=("");
+  }
+
+  else if (BluetoothData.equals("o")){ //auticko autonom
+     goAutonomous();
+     BluetoothData=("");
+  }
+
+  else if (BluetoothData.equals("l")){ // auto turn on led 
+     turnOnLed();
+     BluetoothData=("");
+  }
+
+  else if (BluetoothData.equals("k")){ //turn off led 
+    turnOffLed();
+    BluetoothData=("");
+  }
+  
+  else if (BluetoothData.equals("j")){ // piezo horn
+    horn();
+    BluetoothData=("");
+  }
 }

@@ -7,7 +7,7 @@ void goReverse();
 void turnLeft(bool straight);
 void turnRight(bool straight);
 void doUTurn();
-void stop();
+void stopCar();
 void btValues();
 void readPRData();
 int giveTurnValue(int leftDistance, int rightDistance);

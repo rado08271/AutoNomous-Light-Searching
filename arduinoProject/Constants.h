@@ -25,5 +25,6 @@
 #define backLeftPR 0
 
 const int del = 5; //Delay for turning wheels
+const int MAX_DISTANCE = 20;
 
 #endif
