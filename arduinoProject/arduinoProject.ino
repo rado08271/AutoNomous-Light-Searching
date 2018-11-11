@@ -9,7 +9,8 @@
 
 void setup() {
     Serial.begin(9600);  //Begining the serial
-    forSetup();
+    setupUseful();
+    setupFunc();
         
     pinMode(motorA1,OUTPUT);
     pinMode(motorA2,OUTPUT);

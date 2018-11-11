@@ -8,8 +8,9 @@ void turnLeft(bool straight);
 void turnRight(bool straight);
 void doUTurn();
 void stopCar();
-void btValues();
-void readPRData();
 int giveTurnValue(int leftDistance, int rightDistance);
+void horn();
+void setupFunc();
+void goAutonomous();
 
 #endif

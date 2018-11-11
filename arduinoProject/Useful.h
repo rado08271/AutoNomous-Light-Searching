@@ -9,6 +9,9 @@ void ledLightOnL();
 void ledLightOnR();
 int dist(int i);
 int readLine();
-void horn();
+void setupUseful();
+void btValues();
+void readPRData();
+
 
 #endif
