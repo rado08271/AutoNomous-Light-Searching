@@ -8,10 +8,8 @@ void ledLightOn();
 void ledLightOnL();
 void ledLightOnR();
 int dist(int i);
-int readLine();
 void setupUseful();
 void btValues();
-void readPRData();
-
+void calibrate();
 
 #endif

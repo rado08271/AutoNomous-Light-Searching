@@ -11,7 +11,8 @@ void setup() {
     Serial.begin(9600);  //Begining the serial
     setupUseful();
     setupFunc();
-        
+    calibrate();
+
     pinMode(motorA1,OUTPUT);
     pinMode(motorA2,OUTPUT);
     pinMode(motorB1,OUTPUT);

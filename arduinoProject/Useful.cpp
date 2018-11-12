@@ -6,6 +6,9 @@
 #include "Useful.h"
 #include "Functionality.h"
 
+int calibratedValues[4];
+
+
 SoftwareSerial BT(0, 1);
 String BluetoothData;
 
@@ -61,19 +64,6 @@ int dist(int i){
     return distance;
 }
 
-int readLine(){
-  int IRvalueL = digitalRead(IRsensorL);
-  int IRvalueR = digitalRead(IRsensorR);
- 
-  if(!IRvalueL && IRvalueR) // ked na lavo je cierna a na pravo je biela vracia 1 ma ist do lava
-      return 1;
-  if(IRvalueL && !IRvalueR ) // ked je na lavo biela a na pravo cierna vracia 2 ma ist do prava
-      return -1;
-  if(IRvalueL && IRvalueR) // su na bielej ide rovno 
-      return 0;
-}
-
-
 void btValues(){
   if(BT.available()){
       BluetoothData += BT.readString();
@@ -120,14 +110,36 @@ void btValues(){
     BluetoothData=("");
   }
   
-  else if (BluetoothData.equals("j")){ // piezo horn
+  else if (BluetoothData.equals("h")){ // piezo horn
     horn();
+    BluetoothData=("");
+  }
+
+  else if (BluetoothData.equals("j")){ // go PR
+    readPRData();
     BluetoothData=("");
   }
 }
 
+void calibrate(){
+  int value = 0;
+  int values[4] = {0,0,0,0};
+  while(value < 2500){
+    if(value % 200 <= 100){
+        ledLightOn();
+    }else{
+        ledLightOff();
+    }
+    for(int i = 0; i < 4; i++){
+      values[i] = analogRead(frontRightPR+i);
+      if(calibratedValues[i] < values[i]){
+        calibratedValues[i] = values[i];
+      }
+    }
+  }
+}
 
-void readPRData(){
+void readPRData(){  
   //sprav pole v setup kde nacita na zaciatku hodnoty
   //PP,ZP,PL,ZL
   int values[4] = {0,0,0,0};
@@ -144,7 +156,7 @@ void readPRData(){
     values[i] = analogRead(frontRightPR+i); //precitaj hodnoty
 
     //ak je hodnota vacsia ako 200 tak svieti nan svetlo
-    if(values[i] > 200){
+    if(values[i] > calibratedValues[i]){
       light++;
     }
 
@@ -166,4 +178,3 @@ void readPRData(){
   else if(go < 4) turnLeft();   //na lave svieti chod vlavo
 */
 }
-

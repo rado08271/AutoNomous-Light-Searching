@@ -18,10 +18,10 @@ void horn(){
 
 void goStraight(){
     motorVals(1,0,1,0);
-    if(dist(2) < MAX_DISTANCE){
-        horn();
-        doUTurn();
-    }
+//    if(dist(2) < MAX_DISTANCE){
+//        horn();
+//        doUTurn();
+//    }
     ledLightOff();
 }
  
@@ -95,3 +95,4 @@ void goAutonomous(){
     giveTurnValue(dist(0),dist(1));
     goStraight();
 }
+
