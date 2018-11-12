@@ -18,8 +18,8 @@ void setupUseful(){
 
 void motorVals(int a, int b, int c, int d){
     analogWrite(motorA1,a * 100);
-    analogWrite(motorA2,b * 100);
-    analogWrite(motorB1,c * 100);
+    analogWrite(motorB1,b * 100);
+    analogWrite(motorA2,c * 100);
     analogWrite(motorB2,d * 100);
 }
 
