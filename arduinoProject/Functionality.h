@@ -12,6 +12,5 @@ int giveTurnValue(int leftDistance, int rightDistance);
 void horn();
 void setupFunc();
 void goAutonomous();
-void readPRData();
 
 #endif
