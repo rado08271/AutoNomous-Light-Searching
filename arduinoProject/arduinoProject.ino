@@ -27,6 +27,5 @@ void setup() {
 
 
 void loop() {
-    giveTurnValue(dist(0),dist(1));
-    goStraight();
+    goStraight(false);
 }
