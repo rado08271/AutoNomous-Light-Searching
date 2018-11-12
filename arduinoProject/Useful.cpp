@@ -141,7 +141,7 @@ void calibrate(){
 }
 
 void readPRData(){
-    calibrate();
+  //calibrate();
   //sprav pole v setup kde nacita na zaciatku hodnoty
   //PP,ZP,PL,ZL
   int values[4] = {0,0,0,0};
@@ -158,7 +158,7 @@ void readPRData(){
     values[i] = analogRead(frontRightPR+i); //precitaj hodnoty
       Serial.print("Hodnota PR cislo: ");
       Serial.print(i+1);
-      Serial.print(" je");
+      Serial.print(" je ");
       Serial.println(values[i]);
 
 
