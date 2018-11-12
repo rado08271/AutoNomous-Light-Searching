@@ -125,6 +125,7 @@ void calibrate(){
   int value = 0;
   int values[4] = {0,0,0,0};
   while(value < 2500){
+    value++;
     if(value % 200 <= 100){
         ledLightOn();
     }else{
@@ -139,7 +140,8 @@ void calibrate(){
   }
 }
 
-void readPRData(){  
+void readPRData(){
+    calibrate();
   //sprav pole v setup kde nacita na zaciatku hodnoty
   //PP,ZP,PL,ZL
   int values[4] = {0,0,0,0};
