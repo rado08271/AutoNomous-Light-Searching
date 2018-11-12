@@ -76,7 +76,7 @@ void btValues(){
   }
 
   if(BluetoothData.equals("w")){        // auticko do predu
-        goStraight();
+        goStraight(true);
         BluetoothData=("Going in Straight line");
   }else if (BluetoothData.equals("s")){ //auticko do zadu
         goReverse();
