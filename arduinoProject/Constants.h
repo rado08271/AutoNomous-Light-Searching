@@ -19,10 +19,10 @@
 #define piezoPin 0
 #define bluetoothTX 0
 #define bluetoothRX 0
-#define frontRightPR 1
-#define backRightPR 2
-#define frontLeftPR 3
-#define backLeftPR 4
+#define frontRightPR A1
+#define backRightPR A2
+#define frontLeftPR A3
+#define backLeftPR A4
 
 const int del = 5; //Delay for turning wheels
 const int MAX_DISTANCE = 20;
