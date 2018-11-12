@@ -154,8 +154,13 @@ void readPRData(){
   //nacita vsetky photorezistory
   for(int i = 0; i < 4; i++){
     values[i] = analogRead(frontRightPR+i); //precitaj hodnoty
+      Serial.print("Hodnota PR cislo: ");
+      Serial.print(i+1);
+      Serial.print(" je");
+      Serial.println(values[i]);
 
-    //ak je hodnota vacsia ako 200 tak svieti nan svetlo
+
+      //ak je hodnota vacsia ako 200 tak svieti nan svetlo
     if(values[i] > calibratedValues[i]){
       light++;
     }

@@ -8,21 +8,32 @@
 
 Servo servo;  
 
+/**
+ * Nastavenie pre setup na pripojenie serva
+ */
 void setupFunc(){
     servo.attach(servoPin);  
 }
 
+/**
+ * Funckia sa stara o zvuk pieza
+ */
 void horn(){
     tone(piezoPin,3000,500); //pin, tone, duration
 }
 
-void goStraight(){
+/**
+ * Auticko ide v rovine
+ * @param auton
+ */
+void goStraight(bool auton){
     motorVals(1,0,1,0);
-//    if(dist(2) < MAX_DISTANCE){
-//        horn();
-//        doUTurn();
-//    }
-    ledLightOff();
+    if(auton){
+        if(dist(2) < MAX_DISTANCE){
+            horn();
+            doUTurn();
+        }
+    }
 }
  
 void goReverse(){
@@ -93,6 +104,6 @@ int giveTurnValue(int leftDistance, int rightDistance){
 
 void goAutonomous(){
     giveTurnValue(dist(0),dist(1));
-    goStraight();
+    goStraight(true);
 }
 
