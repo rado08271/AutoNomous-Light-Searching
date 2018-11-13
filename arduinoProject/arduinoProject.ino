@@ -13,12 +13,16 @@ void setup() {
     setupFunc();                    //Servo inicializacia
     calibrate();                    //Kalibracia hodnot pre hladanie svetla 
 
-    pinMode(trig1Pin,OUTPUT);
-    pinMode(trig2Pin,OUTPUT);
-    pinMode(trig3Pin,OUTPUT);
-    pinMode(echo1Pin,INPUT);
-    pinMode(echo2Pin,INPUT);
-    pinMode(echo3Pin,INPUT);
+    pinMode(motorA1,OUTPUT);
+    pinMode(motorA2,OUTPUT);
+    pinMode(motorB1,OUTPUT);
+    pinMode(motorB2,OUTPUT);
+//    pinMode(trig1Pin,OUTPUT);
+//    pinMode(trig2Pin,OUTPUT);
+//    pinMode(trig3Pin,OUTPUT);
+//    pinMode(echo1Pin,INPUT);
+//    pinMode(echo2Pin,INPUT);
+//    pinMode(echo3Pin,INPUT);
 }
 
 

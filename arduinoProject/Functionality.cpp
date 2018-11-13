@@ -30,7 +30,7 @@ void goReverse(){
     motorVals(0,1,0,1);                 //hodnoty pravy zadny ano, lavy zadny ano
 } 
 
-void turnLeft(bool straight){
+void turnRight(bool straight){
     for(int i = 90; i < 120; i++) {     //postupne otaca servo dolava
         if(straight){                   //ked ma ist dopredu tak ide dopredu
             if(i%10>5){                 //zapne blinker
@@ -45,7 +45,7 @@ void turnLeft(bool straight){
     }
 }
 
-void turnRight(bool straight){
+void turnLeft(bool straight){
     for(int i = 90; i > 60; i--) {      //postupne otaca servo doprava
         if(straight) {                  //ked ma ist dopredu tak ide dopredu
             if (i % 10 > 5) {           //zapne blinker
