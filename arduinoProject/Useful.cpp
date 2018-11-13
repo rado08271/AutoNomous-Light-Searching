@@ -78,44 +78,35 @@ void btValues(){
   if(BluetoothData.equals("w")){        // auticko do predu
         goStraight(true);
         BT.println("Going in Straight line");
-        BluetoothData=("");
   }else if (BluetoothData.equals("s")){ //auticko do zadu
         goReverse();
         BT.println("Going in Reverse");
-        BluetoothData=("");
   }else if (BluetoothData.equals("d")){ //auticko do prava
         turnRight(true);
         BT.println("Turning Right");
-        BluetoothData=("");
   }else if (BluetoothData.equals("a")){ // auticko do lava
         turnLeft(true);
         BT.println("Turning Left");
-        BluetoothData=("");
   }else if (BluetoothData.equals("p")){ // auticko stop
         stopCar();
         BT.println("Car is stopped");
-        BluetoothData=("");
   }else if (BluetoothData.equals("o")){ //auticko autonom
         goAutonomous();
         BT.println("Self-driving");
-        BluetoothData=("");
   }else if (BluetoothData.equals("l")){ //auto turn on led
         ledLightOn();
         BT.println("Leds are On");
-        BluetoothData=("");
   }else if (BluetoothData.equals("k")) {//turn off led
         ledLightOff();
         BT.println("Leds Are OFF");
-        BluetoothData=("");
   }else if (BluetoothData.equals("h")){ //piezo horn
         horn();
         BT.println("I buzz");
-        BluetoothData=("");
   }else if (BluetoothData.equals("j")){ //go PR
         readPRData();
         BT.println("Read PR data");
-        BluetoothData=("");
   }
+  BluetoothData=("");
 }
 
 void calibrate(){
@@ -173,9 +164,9 @@ void readPRData(){
       go = 0;                                             //go nastav na nulu teda auticko zastavi
   }
 
-  if(go < 0) goStraight(false);                                      //je nejaky problem
+  if(go < 0) goStraight(false);                           //je nejaky problem
   else if(go == 0) stopCar();                             //na vsetky svieti = stoj
-  else if(go < 2) turnRight(true);                        //na prave svieti chod vpravo
-  else if(go < 4) turnLeft(true);                         //na lave svieti chod vlavo
+  else if(go <= 2) turnRight(true);                        //na lave svieti chod vlavo
+  else if(go <= 4) turnLeft(true);                         //na prave svieti chod vpravo
 
 }

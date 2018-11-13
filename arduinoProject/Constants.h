@@ -22,7 +22,7 @@
 #define frontLeftPR A3      //lavy predny photoresistor
 #define backLeftPR A4       //lavy zadny photoresistor
 
-const int del = 5;          //casova dlzka pre tocenie kolies
+const int del = 35;          //casova dlzka pre tocenie kolies
 const int MAX_DISTANCE = 20;//maximalna vzdialenost
 
 #endif
