@@ -16,14 +16,14 @@ void goStraight(bool auton);
 void goReverse();
 
 /**
- * Otcoi servo motor do lava
- * @param straight rozhoduje o tom ci ide auto vpred alebo dozadu pocas tocenia serva
+ * Otcoi motor do lava
+ * @param straight rozhoduje o tom ci ide auto vpred alebo dozadu 
  */
 void turnLeft(bool straight);
 
 /**
- * Otcoi servo motor do prava
- * @param straight rozhoduje o tom ci ide auto vpred alebo dozadu pocas tocenia serva
+ * Otcoi motor do prava
+ * @param straight rozhoduje o tom ci ide auto vpred alebo dozadu 
  */
 void turnRight(bool straight);
 
@@ -36,28 +36,22 @@ void turnRight(bool straight);
 void doUTurn();
 
 /**
- * zastav auticko a otoc kolesa vpred
+ * zastav auticko
  */
 void stopCar();
 
 /**
- * tato funckia zisti aky uhol sa ma nastavit
- * pre kolesa rozhoduje sa podla vzdialenosti
+ * tato funckia rozhoduje kam ma auticko ist
+ * rozhoduje sa podla vzdialenosti of objektu
  * @param leftDistance vzdialenost najblizsieho objektu vlavo
  * @param rightDistance vzdialenost najblizsieho objektu vpravu
- * @return vracia uhol ktorym sa maju natocit kolesa
  */
-int giveTurnValue(int leftDistance, int rightDistance);
+void giveTurnValue(int leftDistance, int rightDistance);
 
 /**
  * Funckia sa stara o zvuk pieza
  */
 void horn();
-
-/**
- * Nastavenie pre setup na pripojenie serva
- */
-void setupFunc();
 
 /**
  * funkcia ktora sa stara o samostatnu autonomitu auta

@@ -5,7 +5,6 @@
 #define motorA2 10          //IN2 pre H-bridge
 #define motorB1 11          //IN3 pre H-bridge
 #define motorB2 12          //IN4 pre H-beidge
-#define servoPin A0         //Servo Pin OUTPUT
 #define trig1Pin 2          //triger Pin ultrasonic
 #define trig2Pin 3          //triger Pin ultrasonic
 #define trig3Pin 4          //triger Pin ultrasonic

@@ -6,12 +6,6 @@
 #include "Useful.h"
 #include "Functionality.h"
 
-Servo servo;                            //objekt serva
-
-void setupFunc(){
-    servo.attach(servoPin);             //pripoji servo na servoPin
-}
-
 void horn(){
     tone(piezoPin,3000,500);            //nastavi frekvenciu ktorou bude zvonit na nejaky cas
 }
@@ -30,69 +24,48 @@ void goReverse(){
     motorVals(0,1,0,1);                 //hodnoty pravy zadny ano, lavy zadny ano
 } 
 
+//fixme add delay?
 void turnRight(bool straight){
-    for(int i = 90; i < 120; i++) {     //postupne otaca servo dolava
-        if(straight){                   //ked ma ist dopredu tak ide dopredu
-            if(i%10>5){                 //zapne blinker
-                ledLightOnL();
-            }else{
-                ledLightOff();
-            }
-            goStraight(false);          //chod rovno bez zistovania objektov vpredu
-        }else goReverse();              //ked ma ist dozadu ide dozadu
-        servo.write(i);                 //zapis na servo
-        delay(del);                     //pockaj nejaky cas
-    }
-    servo.write(90);
+    if(straight) motorVals(1,0,0,0);   //chod vpred a otacaj kolesa
+    else motorVals(0,1,0,0);           //chod vzad a otacaj kolesa
 }
 
+//fixme add delay?
 void turnLeft(bool straight){
-    for(int i = 90; i > 60; i--) {      //postupne otaca servo doprava
-        if(straight) {                  //ked ma ist dopredu tak ide dopredu
-            if (i % 10 > 5) {           //zapne blinker
-                ledLightOnR();
-            } else {
-                ledLightOff();
-            }
-            goStraight(false);          //chod rovno bez zistovania objektov vpredu
-        }else goReverse();              //ked ma ist dozadu ide dozadu
-
-        servo.write(i);                 //zapis na servo
-        delay(del);                     //pockaj nejaky cas
-    }
-    servo.write(90);
+    if(straight) motorVals(0,0,1,0);   //chod vpred a otacaj kolesa
+    else motorVals(0,0,0,1);           //chod vzad a otacaj kolesa
 }
 
 void doUTurn(){
-    bool goRight = dist(0) > dist(1) ? true : false; //rozhoduje do ktorej strany ma auticko ist
+    bool goRight = dist(0) > dist(1) ? true : false;                    //rozhoduje do ktorej strany ma auticko ist
 
-    goRight ? turnLeft(true) : turnRight(true);   //rozhoduje sa vpravo alebo vlavo a dozadu
-    goRight ? turnRight(false) : turnRight(false);//ak siel vpravo doazdu musi ist dopredu vlavo a naopek
+    goRight ? turnLeft(true) : turnRight(true);                         //rozhoduje sa vpravo alebo vlavo a dozadu
+    goRight ? turnRight(false) : turnRight(false);                      //ak siel vpravo doazdu musi ist dopredu vlavo a naopek
 
     delay(1000);
 }
 
 void stopCar(){
     motorVals(0,0,0,0);                 //zastavi auticko
-    servo.write(90);                    //otoci kolesa dopradu
 }
 
-int giveTurnValue(int leftDistance, int rightDistance){
-    int angle = 90;                     //nastavi zakladny uhol na 90
+void giveTurnValue(int leftDistance, int rightDistance){
     if(leftDistance > MAX_DISTANCE && rightDistance > MAX_DISTANCE){    //ak su objekty v dostatocnej vzdialenosti chod rovno
-        servo.write(angle);             //ide rovno
-        return angle;                   //vracia uhol
+        goStraight(true);
     }
     bool goRight = (leftDistance < rightDistance) ? true : false;       //ak je objekt vpravo blizsie ako objekt vlavo tak rozhoduj pre pravu stranu
 
-    if(goRight){                       //ak je vyhodnejsie ist vpravo tak zisti o aky uhol ma nastavit vzdialenost doprava
-        angle += (30 - leftDistance);  
-    }else{                             //ak je vyhodnejsie ist vlavo tak zistuj o aky uhol ma nastavit vzdialenost dolava
-        angle -= (30 - rightDistance);
+    if(goRight){                       //ak je vyhodnejsie ist vpravo tak zisti vzdialenost doprava
+        turnRight(true);
+    }else{                             //ak je vyhodnejsie ist vlavo tak zisti vzdialenost dolava
+        turnLeft(true);
     }
-    servo.write(angle);                //zapise uhol na servo
-    
-    return angle;                      //vracia uhol
+
+    //fixme nejak pracuj s hodnotami ktore dostane a s casom? 700 pri vzd 20 1500 pri vzd < 4
+    //20*50 == 1000
+    //2*50 === 100
+    //1600-1000=600
+    //1600-100=1500
 }
 
 void goAutonomous(){

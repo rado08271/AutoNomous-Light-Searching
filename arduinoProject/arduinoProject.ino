@@ -10,7 +10,6 @@
 void setup() {
     Serial.begin(9600);             //Inicializacia serialoveho terminalu
     setupUseful();                  //BLuetooth inicializacia
-    setupFunc();                    //Servo inicializacia
     calibrate();                    //Kalibracia hodnot pre hladanie svetla 
 
     pinMode(motorA1,OUTPUT);
@@ -31,5 +30,5 @@ void loop() {
   delay(500);
   turnLeft(true);
 //    btValues();                     //Funckia bluetooth ktora sa stara o cele ovladanie a pracu auticka
-    delay(500);                     //menej citani = menej parkinson
+  delay(500);                     //menej citani = menej parkinson
 }
