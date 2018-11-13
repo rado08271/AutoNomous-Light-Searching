@@ -11,6 +11,7 @@ void setup() {
     Serial.begin(9600);             //Inicializacia serialoveho terminalu
     setupUseful();                  //BLuetooth inicializacia
     calibrate();                    //Kalibracia hodnot pre hladanie svetla 
+    ledLightOn();
 
     pinMode(motorA1,OUTPUT);
     pinMode(motorA2,OUTPUT);

@@ -25,15 +25,19 @@ void goReverse(){
 } 
 
 void turnRight(bool straight, int timeDel){
-    if(straight) motorVals(1,0,0,0);   //chod vpred a otacaj kolesa
-    else motorVals(0,1,0,0);           //chod vzad a otacaj kolesa
+    ledLightOnR();
+    if(straight) motorVals(1,0,0,1);   //chod vpred a otacaj kolesa
+    else motorVals(0,1,1,0);           //chod vzad a otacaj kolesa
     delay(timeDel);
+    ledLightOff();
 }
 
 void turnLeft(bool straight, int timeDel){
-    if(straight) motorVals(0,0,1,0);   //chod vpred a otacaj kolesa
-    else motorVals(0,0,0,1);           //chod vzad a otacaj kolesa
+    ledLightOnL();
+    if(straight) motorVals(0,1,1,0);   //chod vpred a otacaj kolesa
+    else motorVals(1,0,0,1);           //chod vzad a otacaj kolesa
     delay(timeDel);
+    ledLightOff();
 }
 
 void doUTurn(){
