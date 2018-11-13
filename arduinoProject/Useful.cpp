@@ -17,10 +17,10 @@ void setupUseful(){
 }
 
 void motorVals(int a, int b, int c, int d){
-    analogWrite(motorA1,a * 100);
-    analogWrite(motorA2,b * 100);
-    analogWrite(motorB1,c * 100);
-    analogWrite(motorB2,d * 100);
+    digitalWrite(motorA1,a);
+    digitalWrite(motorA2,b);
+    digitalWrite(motorB1,c);
+    digitalWrite(motorB2,d);
 }
 
 void ledVals(int a, int b){
