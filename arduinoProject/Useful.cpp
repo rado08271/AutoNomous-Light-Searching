@@ -77,34 +77,44 @@ void btValues(){
 
   if(BluetoothData.equals("w")){        // auticko do predu
         goStraight(true);
-        BluetoothData=("Going in Straight line");
+        BT.println("Going in Straight line");
+        BluetoothData=("");
   }else if (BluetoothData.equals("s")){ //auticko do zadu
         goReverse();
-        BluetoothData=("Going in Reverse");
+        BT.println("Going in Reverse");
+        BluetoothData=("");
   }else if (BluetoothData.equals("d")){ //auticko do prava
         turnRight(true);
-        BluetoothData=("Turning Right");
+        BT.println("Turning Right");
+        BluetoothData=("");
   }else if (BluetoothData.equals("a")){ // auticko do lava
         turnLeft(true);
-        BluetoothData=("Turning Left");
+        BT.println("Turning Left");
+        BluetoothData=("");
   }else if (BluetoothData.equals("p")){ // auticko stop
         stopCar();
-        BluetoothData=("Car is stopped");
+        BT.println("Car is stopped");
+        BluetoothData=("");
   }else if (BluetoothData.equals("o")){ //auticko autonom
         goAutonomous();
-        BluetoothData=("Self-driving");
+        BT.println("Self-driving");
+        BluetoothData=("");
   }else if (BluetoothData.equals("l")){ //auto turn on led
         ledLightOn();
-        BluetoothData=("Leds are On");
+        BT.println("Leds are On");
+        BluetoothData=("");
   }else if (BluetoothData.equals("k")) {//turn off led
         ledLightOff();
-        BluetoothData = ("Leds Are OFF");
+        BT.println("Leds Are OFF");
+        BluetoothData=("");
   }else if (BluetoothData.equals("h")){ //piezo horn
         horn();
-        BluetoothData=("I buzz");
+        BT.println("I buzz");
+        BluetoothData=("");
   }else if (BluetoothData.equals("j")){ //go PR
         readPRData();
-        BluetoothData=("Read PR data");
+        BT.println("Read PR data");
+        BluetoothData=("");
   }
 }
 

@@ -1,22 +1,18 @@
+//pouzite kniznice
 #include <Servo.h>
 #include <stdbool.h>
-#include <SoftwareSerial.h>
 
+//hlavickove subory
 #include "Constants.h"
 #include "Useful.h"
 #include "Functionality.h"
 
-
 void setup() {
-    Serial.begin(9600);  //Begining the serial
-    setupUseful();
-    setupFunc();
-    calibrate();
+    Serial.begin(9600);             //Inicializacia serialoveho terminalu
+    setupUseful();                  //BLuetooth inicializacia
+    setupFunc();                    //Servo inicializacia
+    calibrate();                    //Kalibracia hodnot pre hladanie svetla 
 
-    pinMode(motorA1,OUTPUT);
-    pinMode(motorA2,OUTPUT);
-    pinMode(motorB1,OUTPUT);
-    pinMode(motorB2,OUTPUT);
     pinMode(trig1Pin,OUTPUT);
     pinMode(trig2Pin,OUTPUT);
     pinMode(trig3Pin,OUTPUT);
@@ -27,5 +23,5 @@ void setup() {
 
 
 void loop() {
-    goStraight(false);
+    btValues();                     //Funckia bluetooth ktora sa stara o cele ovladanie a pracu auticka
 }
