@@ -1,10 +1,6 @@
 #ifndef USEFUL_H_
 #define USEFUL_H_
 
-/**
- * Inicializuje bluetooth
- */
-void setupUseful();
 
 /**
  * nastavi hodnoty pre motor zapnutim urcitych pinov na hodnotu 100 alebo 0
@@ -52,13 +48,6 @@ void ledLightOnR();
  * @return vzdialenost od objektu
  */
 int dist(int i);
-
-/**
- * Pracuje s bluetooth komunikaciou stylom prijmania
- * jednoduchych bytych dat ak data nepozna bluetooth ignoruje
- * a odosle
- */
-void btValues();
 
 /**
  * Tato funckia nakalibruje hodnoty svetla podla hodnoty
