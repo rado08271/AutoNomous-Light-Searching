@@ -28,4 +28,5 @@ void setup() {
 
 void loop() {
     btValues();                     //Funckia bluetooth ktora sa stara o cele ovladanie a pracu auticka
+    delay(200);                     //menej citani = menej parkinson
 }

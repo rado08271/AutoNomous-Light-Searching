@@ -84,7 +84,7 @@ int giveTurnValue(int leftDistance, int rightDistance){
     bool goRight = (leftDistance < rightDistance) ? true : false;       //ak je objekt vpravo blizsie ako objekt vlavo tak rozhoduj pre pravu stranu
 
     if(goRight){                       //ak je vyhodnejsie ist vpravo tak zisti o aky uhol ma nastavit vzdialenost doprava
-        angle += (30 - leftDistance);
+        angle += (30 - leftDistance);  
     }else{                             //ak je vyhodnejsie ist vlavo tak zistuj o aky uhol ma nastavit vzdialenost dolava
         angle -= (30 - rightDistance);
     }
