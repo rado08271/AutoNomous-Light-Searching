@@ -173,7 +173,7 @@ void readPRData(){
       go = 0;                                             //go nastav na nulu teda auticko zastavi
   }
 
-  if(go < 0) return;                                      //je nejaky problem
+  if(go < 0) goStraight(false);                                      //je nejaky problem
   else if(go == 0) stopCar();                             //na vsetky svieti = stoj
   else if(go < 2) turnRight(true);                        //na prave svieti chod vpravo
   else if(go < 4) turnLeft(true);                         //na lave svieti chod vlavo
