@@ -18,14 +18,16 @@ void goReverse();
 /**
  * Otcoi motor do lava
  * @param straight rozhoduje o tom ci ide auto vpred alebo dozadu 
+ * @param timeDel cas za aky sa bude otacat
  */
-void turnLeft(bool straight);
+void turnLeft(bool straight, int timeDel);
 
 /**
  * Otcoi motor do prava
  * @param straight rozhoduje o tom ci ide auto vpred alebo dozadu 
+ * @param timeDel cas za aky sa bude otacat
  */
-void turnRight(bool straight);
+void turnRight(bool straight, int timeDel);
 
 /**
  * ak je pred autom predmet tak sa auticko otoci

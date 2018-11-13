@@ -82,10 +82,10 @@ void btValues(){
         goReverse();
         BT.println("Going in Reverse");
   }else if (BluetoothData.equals("d")){ //auticko do prava
-        turnRight(true);
+        turnRight(true,1000);
         BT.println("Turning Right");
   }else if (BluetoothData.equals("a")){ // auticko do lava
-        turnLeft(true);
+        turnLeft(true,1000);
         BT.println("Turning Left");
   }else if (BluetoothData.equals("p")){ // auticko stop
         stopCar();
@@ -166,7 +166,7 @@ void readPRData(){
 
   if(go < 0) goStraight(false);                           //je nejaky problem
   else if(go == 0) stopCar();                             //na vsetky svieti = stoj
-  else if(go <= 2) turnRight(true);                        //na lave svieti chod vlavo
-  else if(go <= 4) turnLeft(true);                         //na prave svieti chod vpravo
+  else if(go <= 2) turnRight(true, 1000);                  //na lave svieti chod vlavo
+  else if(go <= 4) turnLeft(true, 1000);                        //na prave svieti chod vpravo
 
 }
