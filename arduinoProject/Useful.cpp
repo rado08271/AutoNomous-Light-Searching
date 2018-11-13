@@ -8,7 +8,7 @@
 
 int calibratedValues[4];                //kalibracne hodnoty pre PR
 
-SoftwareSerial BT(bluetoothRX, bluetoothTX);     //inicializacia objektu bluetoothu
+SoftwareSerial BT(bluetoothTX, bluetoothRX);     //inicializacia objektu bluetoothu
 String BluetoothData;                            //pole pre vstup bluetooth dat
 
 void setupUseful(){
