@@ -70,33 +70,11 @@ int dist(int i){
 }
 
 void btValues(){
-    if(BT.available()){                   //Ak je bluetooth dostupny tak zacni s bt
-      BluetoothData += BT.readString();
-      delay(100);
+  if(BT.available()){                   //Ak je bluetooth dostupny tak zacni s bt
+        BluetoothData += BT.readString();
+        delay(100);
   }
-
-  while(BluetoothData.equals("o")){     //auticko autonom
-        goAutonomous();
-        BT.println("Self-driving");    
-        Serial.println("Self-driving");    
-        if(BT.available()){                   //Ak je bluetooth dostupny tak zacni s bt
-            Serial.println("Zmena nacitavania pre SD");
-            BluetoothData += BT.readString();
-//            delay(100);
-        }
-  }
-  while(BluetoothData.equals("j")){     //auticko hlada svetlo
-        readPRData();
-        BT.println("Read PR data");    
-        Serial.println("Read PR data");    
-        if(BT.available()){                   //Ak je bluetooth dostupny tak zacni s bt
-            Serial.println("Zmena nacitavania pri citani pr");      
-            BluetoothData += BT.readString();
-//            delay(100);
-        }
-  }
-
-
+  
   if(BluetoothData.equals("w")){        // auticko do predu
         goStraight(false);
         Serial.println(BluetoothData);
@@ -129,6 +107,27 @@ void btValues(){
         horn();
         Serial.println(BluetoothData);
         BT.println("I buzz");
+  }
+
+    while(BluetoothData.equals("o")){     //auticko autonom
+        goAutonomous();
+        BT.println("Self-driving");    
+        Serial.println("Self-driving");    
+        if(BT.available()){                   //Ak je bluetooth dostupny tak zacni s bt
+            Serial.println("Zmena nacitavania pre SD");
+            BluetoothData += BT.readString();
+            delay(100);
+        }
+  }
+  while(BluetoothData.equals("j")){     //auticko hlada svetlo
+        readPRData();
+        BT.println("Read PR data");    
+        Serial.println("Read PR data");    
+        if(BT.available()){                   //Ak je bluetooth dostupny tak zacni s bt
+            Serial.println("Zmena nacitavania pri citani pr");      
+            BluetoothData += BT.readString();
+            delay(100);
+        }
   }
 
   BluetoothData=("");
@@ -192,7 +191,7 @@ void readPRData(){
 
   if(go < 0) goStraight(false);                           //je nejaky problem
   else if(go == 0) stopCar();                             //na vsetky svieti = stoj
-  else if(go <= 2) turnRight(true, 1000);                 //na lave svieti chod vlavo
-  else if(go <= 4) turnLeft(true, 1000);                  //na prave svieti chod vpravo
+  else if(go <= 2) turnLeft(true, 1000);                 //na lave svieti chod vlavo
+  else if(go <= 4) turnRight(true, 1000);                  //na prave svieti chod vpravo
 
 }
