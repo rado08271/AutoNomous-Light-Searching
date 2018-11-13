@@ -9,12 +9,7 @@
 #include "Useful.h"
 #include "Functionality.h"
 
-//SoftwareSerial BT(bluetoothTX, bluetoothRX);     //inicializacia objektu bluetoothu
-//String BluetoothData;                            //pole pre vstup bluetooth dat
-
 void setup() {
-//    BT.begin(9600);                     //zacne prijmat bluetoothLE data na pasme 9600 baudov
-//    BT.println("Bluetooth is on");      //posle bluetooth informaciu ze je zapnuty
     
     setupUseful();
     
