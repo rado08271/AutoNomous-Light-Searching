@@ -41,7 +41,7 @@ void loop() {
   }
 
   if(BluetoothData.equals("w")){        // auticko do predu
-        goStraight(true);
+        goStraight(false);
         Serial.println(BluetoothData);
         BT.println("Going in Straight line");
   }else if (BluetoothData.equals("s")){ //auticko do zadu
@@ -77,17 +77,21 @@ void loop() {
   while(BluetoothData.equals("o")){     //auticko autonom
         goAutonomous();
         BT.println("Self-driving");    
+        Serial.println("Self-driving");    
         if(BT.available()){                   //Ak je bluetooth dostupny tak zacni s bt
+            Serial.println("Zmena nacitavania pre SD");
             BluetoothData += BT.readString();
-            delay(100);
+//            delay(100);
         }
   }
   while(BluetoothData.equals("j")){     //auticko hlada svetlo
         readPRData();
         BT.println("Read PR data");    
+        Serial.println("Read PR data");    
         if(BT.available()){                   //Ak je bluetooth dostupny tak zacni s bt
+            Serial.println("Zmena nacitavania pri citani pr");      
             BluetoothData += BT.readString();
-            delay(100);
+//            delay(100);
         }
   }
   BluetoothData=("");
