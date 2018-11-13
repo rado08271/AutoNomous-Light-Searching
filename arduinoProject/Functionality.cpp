@@ -43,6 +43,7 @@ void turnRight(bool straight){
         servo.write(i);                 //zapis na servo
         delay(del);                     //pockaj nejaky cas
     }
+    servo.write(90);
 }
 
 void turnLeft(bool straight){
@@ -59,6 +60,7 @@ void turnLeft(bool straight){
         servo.write(i);                 //zapis na servo
         delay(del);                     //pockaj nejaky cas
     }
+    servo.write(90);
 }
 
 void doUTurn(){

@@ -172,10 +172,10 @@ void readPRData(){
   if(light == 4){                                         //na vsetky 4 svieti tak zastav
       go = 0;                                             //go nastav na nulu teda auticko zastavi
   }
-/*
-  if(go < 0) error();                                     //je nejaky problem
-  else if(go == 0) stop();                                //na vsetky svieti = stoj
-  else if(go < 2) turnRight();                            //na prave svieti chod vpravo
-  else if(go < 4) turnLeft();                             //na lave svieti chod vlavo
-*/
+
+  if(go < 0) return;                                      //je nejaky problem
+  else if(go == 0) stopCar();                             //na vsetky svieti = stoj
+  else if(go < 2) turnRight(true);                        //na prave svieti chod vpravo
+  else if(go < 4) turnLeft(true);                         //na lave svieti chod vlavo
+
 }
