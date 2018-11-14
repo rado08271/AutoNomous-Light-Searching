@@ -26,7 +26,7 @@ void goReverse(){
 } 
 
 void turnRight(bool straight, int timeDel){
-    Serial.println("Going Left");
+    Serial.println("Going Right");
     ledLightOnR();
     if(straight) motorVals(1,0,0,1);   //chod vpred a otacaj kolesa
     else motorVals(0,1,1,0);           //chod vzad a otacaj kolesa
