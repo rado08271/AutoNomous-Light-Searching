@@ -118,6 +118,7 @@ void btValues(){
             Serial.println("Zmena nacitavania pre SD");
             BluetoothData += BT.readString();
             delay(100);
+            break;
         }
   }
   while(BluetoothData.equals("j")){     //auticko hlada svetlo
@@ -128,6 +129,7 @@ void btValues(){
             Serial.println("Zmena nacitavania pri citani pr");      
             BluetoothData += BT.readString();
             delay(100);
+            break;
         }
   }
 
@@ -192,7 +194,7 @@ void readPRData(){
 
   if(go < 0) goStraight(false);                           //je nejaky problem
   else if(go == 0) stopCar();                             //na vsetky svieti = stoj
-  else if(go <= 2) turnLeft(true, 1000);                 //na lave svieti chod vlavo
-  else if(go <= 4) turnRight(true, 1000);                  //na prave svieti chod vpravo
+  else if(go <= 2) turnLeft(true, 1000);                  //na lave svieti chod vlavo
+  else if(go <= 4) turnRight(true, 1000);                 //na prave svieti chod vpravo
 
 }

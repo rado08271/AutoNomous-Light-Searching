@@ -22,12 +22,12 @@ void setup() {
     pinMode(motorB1,OUTPUT);
     pinMode(motorB2,OUTPUT);
     
-//    pinMode(trig1Pin,OUTPUT);
-//    pinMode(trig2Pin,OUTPUT);
-//    pinMode(trig3Pin,OUTPUT);
-//    pinMode(echo1Pin,INPUT);
-//    pinMode(echo2Pin,INPUT);
-//    pinMode(echo3Pin,INPUT);
+    pinMode(trig1Pin,OUTPUT);
+    pinMode(trig2Pin,OUTPUT);
+    pinMode(trig3Pin,OUTPUT);
+    pinMode(echo1Pin,INPUT);
+    pinMode(echo2Pin,INPUT);
+    pinMode(echo3Pin,INPUT);
 }
 
 

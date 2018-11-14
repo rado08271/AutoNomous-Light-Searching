@@ -28,8 +28,8 @@ void goReverse(){
 void turnRight(bool straight, int timeDel){
     Serial.println("Going Right");
     ledLightOnR();
-    if(straight) motorVals(1,0,0,1);   //chod vpred a otacaj kolesa
-    else motorVals(0,1,1,0);           //chod vzad a otacaj kolesa
+    if(straight) motorVals(1,0,0,0);   //chod vpred a otacaj kolesa
+    else motorVals(0,0,1,0);           //chod vzad a otacaj kolesa
     delay(timeDel);
     ledLightOff();
 }
@@ -37,8 +37,8 @@ void turnRight(bool straight, int timeDel){
 void turnLeft(bool straight, int timeDel){
     Serial.println("Going Left");
     ledLightOnL();
-    if(straight) motorVals(0,1,1,0);   //chod vpred a otacaj kolesa
-    else motorVals(1,0,0,1);           //chod vzad a otacaj kolesa
+    if(straight) motorVals(0,0,1,0);   //chod vpred a otacaj kolesa
+    else motorVals(1,0,0,0);           //chod vzad a otacaj kolesa
     delay(timeDel);
     ledLightOff();
 }
@@ -60,6 +60,7 @@ void stopCar(){
 void giveTurnValue(int leftDistance, int rightDistance){
     if(leftDistance > MAX_DISTANCE && rightDistance > MAX_DISTANCE){    //ak su objekty v dostatocnej vzdialenosti chod rovno
         goStraight(true);
+        return;
     }
     bool goRight = (leftDistance < rightDistance) ? true : false;       //ak je objekt vpravo blizsie ako objekt vlavo tak rozhoduj pre pravu stranu
 
