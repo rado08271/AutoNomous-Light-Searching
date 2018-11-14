@@ -73,7 +73,7 @@ int dist(int i){
 void btValues(){
   if(BT.available()){                   //Ak je bluetooth dostupny tak zacni s bt
         BluetoothData += BT.readString();
-        delay(100);
+//        delay(100);
   }
   
   if(BluetoothData.equals("w")){        // auticko do predu
@@ -117,7 +117,7 @@ void btValues(){
         if(BT.available()){                   //Ak je bluetooth dostupny tak zacni s bt
             Serial.println("Zmena nacitavania pre SD");
             BluetoothData += BT.readString();
-            delay(100);
+//            delay(100);
             break;
         }
   }
@@ -128,7 +128,7 @@ void btValues(){
         if(BT.available()){                   //Ak je bluetooth dostupny tak zacni s bt
             Serial.println("Zmena nacitavania pri citani pr");      
             BluetoothData += BT.readString();
-            delay(100);
+//            delay(100);
             break;
         }
   }

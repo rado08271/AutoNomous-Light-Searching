@@ -39,17 +39,20 @@ void turnLeft(bool straight, int timeDel){
     Serial.println("Going Left");
     ledLightOnL();
     if(straight) motorVals(0,0,1,0);   //chod vpred a otacaj kolesa
-    else motorVals(1,0,0,0);           //chod vzad a otacaj kolesa
+    else motorVals(0,1,0,0);           //chod vzad a otacaj kolesa
     delay(timeDel);
     ledLightOn();
 }
 
 void doUTurn(){
     stopCar();
-    delay(300);
+    delay(1000);
+    goReverse();
+    delay(1000);
+
     Serial.println("Doing U-Turn");
     bool goRight = dist(0) > dist(1) ? true : false;                              //rozhoduje do ktorej strany ma auticko ist
-
+    
     goRight ? turnLeft(false, 1000) : turnRight(false, 1000);                     //rozhoduje sa vpravo alebo vlavo a dozadu
     goRight ? turnRight(true, 1000) : turnRight(true, 1000);                      //ak siel vpravo doazdu musi ist dopredu vlavo a naopek
 

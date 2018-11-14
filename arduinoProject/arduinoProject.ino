@@ -28,6 +28,16 @@ void setup() {
     pinMode(echo1Pin,INPUT);
     pinMode(echo2Pin,INPUT);
     pinMode(echo3Pin,INPUT);
+
+    pinMode(ledRight,OUTPUT);
+    pinMode(ledLeft,OUTPUT);
+    pinMode(piezoPin,OUTPUT);
+
+    pinMode(frontRightPR,INPUT);
+    pinMode(backRightPR,INPUT);
+    pinMode(frontLeftPR,INPUT);
+    pinMode(backLeftPR,INPUT);
+
 }
 
 
