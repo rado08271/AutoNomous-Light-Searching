@@ -65,7 +65,8 @@ int dist(int i){
     distance = duration*0.034/2;        //vypocita vzdialenost od predmetu ako cas za ktory sa zvuk dostal
                                         // spat na echo vzdialenost dostane vynasobenim casu rychlostou za sekundu
                                         //dostane ale vydialenost tam a naspat takze tuto vydialenost musi vydelit dvoma
-  
+
+    Serial.println(distance);
     return distance;                    //vrati vzdialenost od objektu
 }
 

@@ -11,6 +11,7 @@ void horn(){
 }
 
 void goStraight(bool auton){
+    Serial.println("Going straight");
     motorVals(1,0,1,0);                 //hodnoty pravy dopredu ano, lavy depredu ano
     if(auton){                          //mod autonomity
         if(dist(2) < MAX_DISTANCE){     //ak je objekt vo vzdialenosti menej ako MAX_DISTANCE tak zatrub a otoc
@@ -25,6 +26,7 @@ void goReverse(){
 } 
 
 void turnRight(bool straight, int timeDel){
+    Serial.println("Going Left");
     ledLightOnR();
     if(straight) motorVals(1,0,0,1);   //chod vpred a otacaj kolesa
     else motorVals(0,1,1,0);           //chod vzad a otacaj kolesa
@@ -33,6 +35,7 @@ void turnRight(bool straight, int timeDel){
 }
 
 void turnLeft(bool straight, int timeDel){
+    Serial.println("Going Left");
     ledLightOnL();
     if(straight) motorVals(0,1,1,0);   //chod vpred a otacaj kolesa
     else motorVals(1,0,0,1);           //chod vzad a otacaj kolesa
@@ -41,6 +44,7 @@ void turnLeft(bool straight, int timeDel){
 }
 
 void doUTurn(){
+    Serial.println("Doing U-Turn");
     bool goRight = dist(0) > dist(1) ? true : false;                    //rozhoduje do ktorej strany ma auticko ist
 
     goRight ? turnLeft(true, 1000) : turnRight(true, 1000);                         //rozhoduje sa vpravo alebo vlavo a dozadu

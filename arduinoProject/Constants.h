@@ -11,9 +11,9 @@
 #define echo1Pin 5          //echo Pin ultrasonic
 #define echo2Pin 6          //echo Pin ultrasonic
 #define echo3Pin 7          //echo Pin ultrasonic
-#define ledRight A0          //lava ledka
-#define ledLeft A5           //prava ledka
-#define piezoPin 13          //piezo pin
+#define ledRight A5         //lava ledka
+#define ledLeft A0          //prava ledka
+#define piezoPin 13         //piezo pin
 #define bluetoothTX 0       //bluetooth tx pin
 #define bluetoothRX 1       //bluetooth rx pin
 #define frontRightPR A1     //pravy predny photoresistor
