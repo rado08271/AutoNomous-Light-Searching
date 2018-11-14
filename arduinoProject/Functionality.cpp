@@ -45,11 +45,13 @@ void turnLeft(bool straight, int timeDel){
 }
 
 void doUTurn(){
+    stopCar();
+    delay(300);
     Serial.println("Doing U-Turn");
-    bool goRight = dist(0) > dist(1) ? true : false;                    //rozhoduje do ktorej strany ma auticko ist
+    bool goRight = dist(0) > dist(1) ? true : false;                              //rozhoduje do ktorej strany ma auticko ist
 
-    goRight ? turnLeft(true, 1000) : turnRight(true, 1000);                         //rozhoduje sa vpravo alebo vlavo a dozadu
-    goRight ? turnRight(false, 1000) : turnRight(false, 1000);                      //ak siel vpravo doazdu musi ist dopredu vlavo a naopek
+    goRight ? turnLeft(false, 1000) : turnRight(false, 1000);                     //rozhoduje sa vpravo alebo vlavo a dozadu
+    goRight ? turnRight(true, 1000) : turnRight(true, 1000);                      //ak siel vpravo doazdu musi ist dopredu vlavo a naopek
 
     delay(1000);
 }
