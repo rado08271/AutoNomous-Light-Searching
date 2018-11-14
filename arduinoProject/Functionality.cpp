@@ -32,7 +32,7 @@ void turnRight(bool straight, int timeDel){
     if(straight) motorVals(1,0,0,0);   //chod vpred a otacaj kolesa
     else motorVals(0,0,1,0);           //chod vzad a otacaj kolesa
     delay(timeDel);
-    ledLightOff();
+    ledLightOn();
 }
 
 void turnLeft(bool straight, int timeDel){
@@ -41,7 +41,7 @@ void turnLeft(bool straight, int timeDel){
     if(straight) motorVals(0,0,1,0);   //chod vpred a otacaj kolesa
     else motorVals(1,0,0,0);           //chod vzad a otacaj kolesa
     delay(timeDel);
-    ledLightOff();
+    ledLightOn();
 }
 
 void doUTurn(){
