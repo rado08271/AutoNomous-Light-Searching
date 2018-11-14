@@ -15,8 +15,9 @@ void setup() {
     
     Serial.begin(9600);               //Inicializacia serialoveho terminalu
     calibrate();                      //Kalibracia hodnot pre hladanie svetla 
-    ledLightOn();
+    ledLightOn();                     //Zapne svetla
 
+    // nastavuje hodnoty pinov pre input alebo output 
     pinMode(motorA1,OUTPUT);
     pinMode(motorA2,OUTPUT);
     pinMode(motorB1,OUTPUT);

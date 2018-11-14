@@ -194,7 +194,7 @@ void readPRData(){
 
   if(go < 0) goStraight(false);                           //je nejaky problem
   else if(go == 0) stopCar();                             //na vsetky svieti = stoj
-  else if(go <= 2) turnLeft(true, 1000);                  //na lave svieti chod vlavo
-  else if(go <= 4) turnRight(true, 1000);                 //na prave svieti chod vpravo
+  else if(go <= 2) turnRight(true, 1000);                 //na lave svieti chod vlavo
+  else if(go <= 4) turnLeft(true, 1000);                  //na prave svieti chod vpravo
 
 }

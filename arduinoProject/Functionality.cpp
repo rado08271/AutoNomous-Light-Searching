@@ -54,7 +54,7 @@ void doUTurn(){
     bool goRight = dist(0) > dist(1) ? true : false;                              //rozhoduje do ktorej strany ma auticko ist
     
     goRight ? turnLeft(false, 1000) : turnRight(false, 1000);                     //rozhoduje sa vpravo alebo vlavo a dozadu
-    goRight ? turnRight(true, 1000) : turnRight(true, 1000);                      //ak siel vpravo doazdu musi ist dopredu vlavo a naopek
+//  goRight ? turnRight(true, 1000) : turnRight(true, 1000);                      //ak siel vpravo doazdu musi ist dopredu vlavo a naopek
 
     delay(1000);
 }
